@@ -1,35 +1,32 @@
 19682 
-14150 the
-8106 What
-7338 is
-5318 Is
-3512 this
-3016 on
-2720 in
-2680 a
-2670 are
+14166 the
+12694 is
+8168 what
+4178 are
+3518 this
+3026 on
+2754 in
+2684 a
 2552 of
-1996 color
-1936 How
+1998 color
+1960 how
 1752 many
-1658 there
-1508 Are
-1154 man
- 720 s
- 698 to
+1662 there
+1156 man
+1026 does
+ 724 s
+ 702 to
  696 people
  666 wearing
+ 644 where
  630 picture
- 622 Where
  586 kind
- 566 Does
  560 these
  542 it
  508 or
- 498 have
+ 508 have
  490 woman
  486 person
- 460 does
  428 photo
  420 they
  410 that
@@ -38,32 +35,34 @@
  372 type
  372 animal
  368 dog
- 364 he
- 330 water
+ 366 he
+ 332 water
  324 you
+ 318 do
  302 room
  292 animals
  286 holding
  284 at
- 266 sign
- 264 any
+ 268 sign
+ 266 any
  262 his
- 260 for
- 252 shirt
+ 262 for
+ 254 shirt
  250 bus
- 242 plate
+ 244 plate
  240 playing
+ 236 can
  230 food
  228 be
  220 train
  218 an
- 212 Why
+ 216 which
+ 212 why
  208 made
  206 see
  202 shown
  200 white
  196 sitting
- 194 Which
  192 time
  190 she
  188 right
@@ -72,11 +71,12 @@
  182 number
  182 left
  174 girl
- 172 do
  168 table
  168 standing
+ 166 was
  166 sport
  166 red
+ 164 who
  164 taken
  164 plane
  162 look
@@ -84,61 +84,59 @@
  162 bear
  158 horse
  158 all
- 154 pizza
+ 156 pizza
  154 ground
  154 bird
- 152 Who
+ 152 from
  150 sky
  148 clock
  148 building
  148 background
- 146 from
- 146 Do
- 144 wall
+ 146 wall
  144 her
  140 say
  138 toilet
  136 truck
  134 behind
  134 and
- 134 Can
  132 up
  132 same
  132 riding
  130 men
  128 day
  128 being
+ 126 has
  124 one
  124 eating
  122 visible
+ 122 game
  122 fruit
- 120 game
  120 front
  120 blue
+ 118 green
+ 116 street
  116 out
+ 116 did
  114 looking
- 112 was
  112 like
- 112 green
  106 hand
- 104 street
  102 hair
  102 going
- 102 can
  100 two
+ 100 name
   98 light
   96 umbrella
   96 trees
-  96 name
+  96 pictured
   96 here
   94 vehicle
-  94 pictured
+  94 giraffe
   92 hat
-  92 giraffe
+  92 elephant
   92 child
+  92 car
+  90 would
   90 horses
-  90 elephant
-  90 car
   88 floor
   88 boat
   88 bathroom
@@ -174,8 +172,8 @@
   76 kite
   76 computer
   76 colors
+  74 will
   74 scene
-  74 Did
   72 sink
   72 flying
   72 down
@@ -185,13 +183,14 @@
   70 sheep
   70 real
   70 kitchen
-  70 has
   70 door
+  70 could
   70 bowl
   68 yellow
   68 player
   68 clean
   66 those
+  66 sunny
   66 next
   66 helmet
   66 head
@@ -199,14 +198,13 @@
   66 face
   66 direction
   66 both
-  64 sunny
   64 phone
   64 fire
+  64 camera
   64 called
-  62 what
   62 road
   62 giraffes
-  62 camera
+  60 tv
   60 sandwich
   60 inside
   60 bears
@@ -215,19 +213,15 @@
   58 been
   58 bananas
   58 area
+  56 zebra
   56 way
   56 raining
   56 over
   56 meal
   56 guy
   56 cars
-  56 Would
-  56 Has
-  56 Could
-  54 zebra
   54 pattern
   54 by
-  54 Was
   52 written
   52 using
   52 tennis
@@ -237,6 +231,7 @@
   52 country
   52 city
   52 baby
+  52 air
   52 about
   50 traffic
   50 stove
@@ -246,7 +241,7 @@
   50 eyes
   50 dish
   50 buses
-  50 air
+  48 zebras
   48 walking
   48 signs
   48 shape
@@ -257,8 +252,8 @@
   48 birds
   48 big
   48 beach
-  48 TV
-  46 zebras
+  46 skateboard
+  46 park
   46 need
   46 lights
   46 house
@@ -268,33 +263,32 @@
   46 bottom
   44 vegetable
   44 small
-  44 skateboard
   44 place
-  44 park
   44 pants
+  44 most
   44 likely
   44 laptop
+  44 lady
   44 item
   44 hanging
   44 batter
   44 around
-  44 Will
   42 weather
   42 under
   42 toy
   42 taking
   42 surfboard
+  42 sun
   42 season
   42 play
-  42 most
-  42 lady
   42 jacket
   42 hot
+  42 home
   42 get
+  42 frisbee
   42 field
   42 elephants
   42 dogs
-  42 did
   42 desk
   42 coming
   42 clouds
@@ -304,14 +298,13 @@
   40 women
   40 vegetables
   40 team
-  40 sun
   40 parked
   40 mirror
-  40 home
   40 fridge
   40 flag
   40 covering
   40 box
+  38 zoo
   38 store
   38 shorts
   38 played
@@ -320,8 +313,6 @@
   38 large
   38 glass
   38 cloudy
-  38 IS
-  36 zoo
   36 word
   36 vehicles
   36 umbrellas
@@ -339,24 +330,25 @@
   36 appear
   36 anyone
   36 airplane
-  34 would
   34 wood
   34 restaurant
   34 paper
+  34 not
   34 night
   34 much
   34 meat
   34 lot
   34 leaves
   34 getting
+  34 court
   34 above
-  34 In
   32 vase
   32 teddy
+  32 should
   32 reflection
   32 poles
   32 painted
-  32 not
+  32 main
   32 kids
   32 fruits
   32 feet
@@ -369,7 +361,6 @@
   32 cold
   32 carrying
   32 board
-  30 will
   30 wild
   30 wet
   30 watching
@@ -377,6 +368,7 @@
   30 tracks
   30 tie
   30 through
+  30 t
   30 surfing
   30 stuffed
   30 ready
@@ -396,21 +388,18 @@
   28 waiting
   28 use
   28 tall
-  28 t
   28 stuff
   28 something
   28 some
   28 orange
   28 new
   28 mountain
-  28 main
   28 located
   28 letters
   28 hit
   28 hats
-  28 frisbee
   28 ears
-  28 court
+  28 company
   28 coat
   28 clear
   28 bridge
@@ -423,6 +412,7 @@
   26 surfer
   26 skiing
   26 skier
+  26 ski
   26 screen
   26 sand
   26 pole
@@ -435,11 +425,11 @@
   26 lit
   26 kid
   26 its
+  26 if
   26 graffiti
   26 good
   26 flower
   26 cut
-  26 company
   26 banana
   26 bag
   26 as
@@ -450,7 +440,6 @@
   24 waves
   24 walls
   24 style
-  24 ski
   24 plants
   24 pictures
   24 neck
@@ -461,10 +450,10 @@
   24 legs
   24 landing
   24 just
-  24 how
   24 high
   24 girls
   24 fall
+  24 english
   24 empty
   24 dressed
   24 daytime
@@ -473,12 +462,8 @@
   24 children
   24 buildings
   24 appliance
-  24 Should
-  24 English
   22 writing
   22 work
-  22 which
-  22 where
   22 wave
   22 turned
   22 toilets
@@ -500,6 +485,7 @@
   22 having
   22 dirty
   22 cheese
+  22 center
   22 cats
   22 bottle
   22 books
@@ -507,6 +493,7 @@
   22 beer
   22 attached
   22 arm
+  20 winter
   20 warm
   20 tub
   20 transportation
@@ -520,6 +507,7 @@
   20 sauce
   20 round
   20 remote
+  20 read
   20 pulling
   20 professional
   20 plates
@@ -545,7 +533,6 @@
   20 device
   20 deep
   20 curtains
-  20 center
   20 ceiling
   20 catch
   20 calm
@@ -557,6 +544,7 @@
   20 activity
   18 year
   18 words
+  18 when
   18 vegetarian
   18 utensils
   18 types
@@ -564,19 +552,20 @@
   18 touching
   18 tank
   18 skating
+  18 skate
   18 shelf
   18 setting
   18 scissors
   18 sale
   18 run
   18 ride
-  18 read
   18 race
   18 purpose
   18 painting
   18 outdoors
   18 only
   18 objects
+  18 might
   18 lines
   18 language
   18 indoor
@@ -597,20 +586,19 @@
   18 catcher
   18 bikes
   18 anything
-  16 winter
   16 we
   16 video
   16 tusks
   16 trucks
   16 toothbrush
   16 things
+  16 tell
   16 taller
   16 take
   16 swimming
   16 summer
   16 stripes
   16 soup
-  16 skate
   16 size
   16 seat
   16 resting
@@ -625,7 +613,6 @@
   16 participating
   16 movie
   16 monitor
-  16 might
   16 microwave
   16 meter
   16 metal
@@ -656,6 +643,7 @@
   16 business
   16 belong
   14 without
+  14 wii
   14 whole
   14 wetsuit
   14 van
@@ -663,7 +651,6 @@
   14 traveling
   14 towels
   14 towel
-  14 tell
   14 tag
   14 surfers
   14 surface
@@ -698,7 +685,6 @@
   14 living
   14 largest
   14 lamp
-  14 if
   14 human
   14 holiday
   14 him
@@ -720,7 +706,6 @@
   14 cream
   14 covered
   14 countertop
-  14 could
   14 cooking
   14 come
   14 clothing
@@ -733,23 +718,20 @@
   14 airport
   14 against
   14 advertised
-  14 Wii
-  14 The
-  14 Frisbee
   14 2
   12 wrapped
-  12 who
   12 watch
   12 very
   12 utensil
+  12 us
   12 umpire
-  12 tv
   12 turn
   12 trick
   12 trash
   12 tiles
   12 three
   12 sweater
+  12 subway
   12 striped
   12 still
   12 socks
@@ -824,12 +806,11 @@
   12 adults
   12 accident
   12 able
-  12 When
-  12 Street
-  12 If
   10 yet
   10 yard
   10 wrist
+  10 whose
+  10 were
   10 urban
   10 upside
   10 town
@@ -838,10 +819,10 @@
   10 tidy
   10 tallest
   10 tail
-  10 subway
   10 stripe
   10 straight
   10 stories
+  10 square
   10 sponsor
   10 speed
   10 space
@@ -856,6 +837,7 @@
   10 sinks
   10 signpost
   10 shot
+  10 shop
   10 shining
   10 sheets
   10 served
@@ -883,6 +865,7 @@
   10 kites
   10 keyboard
   10 jump
+  10 jersey
   10 jeans
   10 images
   10 hurt
@@ -914,6 +897,7 @@
   10 brick
   10 bread
   10 bite
+  10 besides
   10 bedspread
   10 beds
   10 bedroom
@@ -922,20 +906,17 @@
   10 arrows
   10 appears
   10 angry
+  10 american
   10 alive
   10 aircraft
   10 after
-  10 Whose
-  10 US
-  10 Have
-  10 American
+   8 world
    8 working
    8 wooden
    8 wires
    8 wire
    8 wind
    8 west
-   8 were
    8 want
    8 view
    8 vest
@@ -974,7 +955,6 @@
    8 staring
    8 star
    8 stainless
-   8 square
    8 sports
    8 sold
    8 snowboards
@@ -987,9 +967,7 @@
    8 single
    8 silverware
    8 signal
-   8 should
    8 shopping
-   8 shop
    8 shadow
    8 sail
    8 row
@@ -998,3 +976,25 @@
    8 restroom
    8 recent
    8 reading
+   8 protective
+   8 power
+   8 pots
+   8 pot
+   8 pillows
+   8 piece
+   8 phones
+   8 pets
+   8 pepperoni
+   8 path
+   8 pastries
+   8 partially
+   8 pajamas
+   8 overcast
+   8 oven
+   8 occasion
+   8 napkin
+   8 moon
+   8 makes
+   8 lunch
+   8 live
+   8 life
