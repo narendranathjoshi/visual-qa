@@ -7,6 +7,7 @@ from keras.preprocessing import sequence
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Embedding
 from keras.layers import LSTM
+from keras.optimizers import RMSprop
 from keras.datasets import imdb
 
 max_features = 20000
@@ -15,12 +16,15 @@ batch_size = 32
 
 print('Loading data...')
 (X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=max_features)
+X_train = X_train[:3000]
+
 print(len(X_train), 'train sequences')
 print(len(X_test), 'test sequences')
 
 vectorSize = -99
 for x_train in X_train:
     vectorSize = max(vectorSize, max(x_train))
+vectorSize += 1
 print (vectorSize)
 
 # for training
@@ -31,9 +35,6 @@ for x_train in X_train:
         bigrams.append(x_train[i: i + maxlen])
         next_word.append(x_train[i + maxlen])
 
-print (len(bigrams))
-print (vectorSize)
-exit(1)
 
 X = np.zeros((len(bigrams), maxlen, vectorSize), dtype=np.bool)
 y = np.zeros((len(next_word), vectorSize), dtype=np.bool)
@@ -45,16 +46,20 @@ for i, bigram in enumerate(bigrams):
 
 print('Build model...')
 model = Sequential()
-model.add(Embedding(max_features, 128, dropout=0.2))
-model.add(LSTM(128, dropout_W=0.2, dropout_U=0.2))  # try using a GRU instead, for fun
-model.add(Dense(1))
-model.add(Activation('sigmoid'))
+#model.add(Embedding(max_features, 128, dropout=0.2))
+model.add(LSTM(128, input_shape=(maxlen, vectorSize)))  # try using a GRU instead, for fun
+model.add(Dense(vectorSize))
+model.add(Activation('softmax'))
 
 # try using different optimizers and different optimizer configs
+'''
 model.compile(loss='binary_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
+'''
 
+optimizer = RMSprop(lr=0.01)
+model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 for j in range(1):
     model.fit(X, y, batch_size=1024, nb_epoch=1)
 
