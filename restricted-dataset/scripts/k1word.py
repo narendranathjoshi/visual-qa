@@ -7,73 +7,92 @@ from keras.utils.data_utils import get_file
 import numpy as np
 import random
 import sys
+import string
 
-#path = get_file('nietzsche.txt', origin="https://s3.amazonaws.com/text-datasets/nietzsche.txt")
-#text = open(path).read().lower()
-#f = open('trial.file')
-f=open("/home/khyathi/Projects/visual-qa/restricted-dataset/scripts/questions.txt",'r')
-total = f.readlines()
-text = ""
-test = ""
-for i in range(2500):
-    text += str(total[i]).lower()
-for i in xrange(2501,3000):
-    test += str(total[i]).lower()
-print('corpus length:', len(text))
 
-chars = sorted(list(set( (text+test).split() )))
-print('total chars:', len(chars))
-char_indices = dict((c, i) for i, c in enumerate(chars))
-indices_char = dict((i, c) for i, c in enumerate(chars))
-print (indices_char)
-# cut the text in semi-redundant sequences of maxlen characters
-maxlen = 4
-#step = 3
+f=open("/home/khyathi/Projects/visual-qa/restricted-dataset/scripts/questions_all.txt",'r')
+lines = f.readlines()
+lines = lines#[:5000]
+totalLen = len(lines)
+trainLen = int(totalLen *0.5)
+testLen = totalLen - trainLen
+train=[]
+test=[]
+words=[]
+i=0
+maxlen=2
+
+for line in lines:
+   lastChar = line.strip()[-1]#"".join(l for l in line if l not in string.punctuation)
+   line = "<s> "+line.strip()[:-1].lower() + " " + lastChar + " </s>"
+   #import pdb;pdb.set_trace()
+   w = line.split()
+   words += w
+   if i<trainLen:
+       train.append(line)
+   else:
+       test.append(line)
+   i+=1
+
+
+words = list(set(words))
+print (words)
+
+word_indices = dict((c, i) for i, c in enumerate(words))
+indices_word = dict((i, c) for i, c in enumerate(words))
+
 sentences = []
-next_chars = []
-text1=text.split()
-for i in range(0, len(text1) - maxlen):
-    sentences.append(text1[i: i + maxlen])
-    next_chars.append(text1[i + maxlen])
+next_word = []
+for line in train:
+    w = line.split()
+    for i in range(0, len(w) - maxlen):
+        sentences.append(w[i: i + maxlen])
+        next_word.append(w[i + maxlen])
 print('nb sequences:', len(sentences))
 print (len(sentences))
 
 print('Vectorization...')
-X = np.zeros((len(sentences), maxlen, len(chars)), dtype=np.bool)
-y = np.zeros((len(sentences), len(chars)), dtype=np.bool)
+print(len(sentences))
+print(maxlen)
+print(len(words))
+X = np.zeros((len(sentences), maxlen, len(words)), dtype=np.bool)
+y = np.zeros((len(sentences), len(words)), dtype=np.bool)
 for i, sentence in enumerate(sentences):
-    for t, char in enumerate(sentence):
-        X[i, t, char_indices[char]] = 1
-    y[i, char_indices[next_chars[i]]] = 1
+    for t, word in enumerate(sentence):
+        X[i, t, word_indices[word]] = 1
+    y[i, word_indices[next_word[i]]] = 1
 
 
 # build the model: a single LSTM
 print('Build model...')
 model = Sequential()
-model.add(LSTM(2, input_shape=(maxlen, len(chars))))
-model.add(Dense(len(chars)))
+model.add(LSTM(32, input_shape=(maxlen, len(words))))
+model.add(Dense(len(words)))
 model.add(Activation('softmax'))
 
 optimizer = RMSprop(lr=0.01)
 model.compile(loss='categorical_crossentropy', optimizer=optimizer)
-model.fit(X, y, batch_size=7, nb_epoch=1)
+for j in range(1):
+    model.fit(X, y, batch_size=1024, nb_epoch=1)
 
 perplexity = 0
 N = 0
-test1 = test.split()
-for i in range(len(test1)-maxlen-1):
-    sentence = test1[i:i+maxlen]
-    x = np.zeros((1, maxlen, len(chars)))
-    for t, char in enumerate(sentence):
-        x[0, t, char_indices[char]] = 1.
 
-    preds = model.predict(x, verbose=0)[0]
-    next_char = test1[i+maxlen]
-    prob = preds[char_indices[next_char]]
-    import pdb;pdb.set_trace()
-    print (prob,i)
-    perplexity += np.log(prob)
-    N += 1
+for i in range(len(test)):
+    w = test[i].split()
+    for j in range(len(w)-maxlen):
+        bigram = w[j:j+maxlen]
+        x = np.zeros((1, maxlen, len(words)))
+        for t, word in enumerate(bigram):
+            x[0, t, word_indices[word]] = 1.
+
+        preds = model.predict(x, verbose=0)[0]
+        next_word = w[j+maxlen]
+        prob = preds[word_indices[next_word]]
+        #import pdb;pdb.set_trace()
+        print (prob,i)
+        perplexity += np.log(prob)
+        N += 1
 
 perplexity /= -N
 print (perplexity)
