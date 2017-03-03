@@ -4,20 +4,22 @@ from keras.layers import Dense, Activation
 from keras.layers import LSTM
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
+from keras.models import model_from_json
 import numpy as np
 import random
 import sys
 
-#path = get_file('nietzsche.txt', origin="https://s3.amazonaws.com/text-datasets/nietzsche.txt")
-#text = open(path).read().lower()
-#f = open('trial.file')
-f=open("/home/khyathi/Projects/visual-qa/restricted-dataset/scripts/questions.txt",'r')
+
+f=open("questions.txt",'r')
 total = f.readlines()
 text = ""
 test = ""
-for i in range(2500):
+total_len = len(total)
+train_len = int(total_len*0.7)
+test_len = len(total) - train_len
+for i in range(train_len):
     text += str(total[i]).lower()
-for i in xrange(2501,3000):
+for i in xrange(train_len+1,total_len):
     test += str(total[i]).lower()
 print('corpus length:', len(text))
 
@@ -49,7 +51,7 @@ for i, sentence in enumerate(sentences):
 # build the model: a single LSTM
 print('Build model...')
 model = Sequential()
-model.add(LSTM(2, input_shape=(maxlen, len(chars))))
+model.add(LSTM(32, input_shape=(maxlen, len(chars))))
 model.add(Dense(len(chars)))
 model.add(Activation('softmax'))
 
@@ -58,7 +60,26 @@ model.compile(loss='categorical_crossentropy', optimizer=optimizer)
 
 perplexity = 0
 for j in range(10):
-    model.fit(X, y, batch_size=7, nb_epoch=5)
+    model.fit(X, y, batch_size=20, nb_epoch=1)
+
+
+model_json = model.to_json()
+with open("model_character_lstm.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save_weights("model_character_lstm.h5")
+print("Saved model to disk")
+
+'''
+# load json and create model
+json_file = open('model_character_lstm.json', 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+loaded_model = model_from_json(loaded_model_json)
+# load weights into new model
+loaded_model.load_weights("model_character_lstm.h5")
+print("Loaded model from disk")
+'''
 
 N = 0
 for i in range(len(test)-maxlen-1):
@@ -70,12 +91,16 @@ for i in range(len(test)-maxlen-1):
     preds = model.predict(x, verbose=0)[0]
     next_char = test[i+maxlen]
     prob = preds[char_indices[next_char]]
-    print (prob,i)
+    #print (prob,i)
     perplexity += np.log(prob)
     N += 1
 
+print ("perplexity = ", perplexity)
 perplexity /= -N
-print (perplexity)
+print ("-perplexity/N = ", perplexity)
+print ("N = ", N)
+perplexity = np.exp(perplexity)
+print ("perplexity = ", perplexity)
 
 exit(1)
 def sample(preds, temperature=1.0):

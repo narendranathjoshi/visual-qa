@@ -4,17 +4,18 @@ from keras.layers import Dense, Activation
 from keras.layers import LSTM
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
+from keras.models import model_from_json
 import numpy as np
 import random
 import sys
 import string
 
 
-f=open("/home/khyathi/Projects/visual-qa/restricted-dataset/scripts/questions_all.txt",'r')
+f=open("questions.txt",'r')
 lines = f.readlines()
-lines = lines#[:5000]
+lines = lines[:100000]
 totalLen = len(lines)
-trainLen = int(totalLen *0.5)
+trainLen = int(totalLen *0.7)
 testLen = totalLen - trainLen
 train=[]
 test=[]
@@ -56,7 +57,7 @@ print(len(sentences))
 print(maxlen)
 print(len(words))
 X = np.zeros((len(sentences), maxlen, len(words)), dtype=np.bool)
-y = np.zeros((len(sentences), len(words)), dtype=np.bool)
+y = np.zeros((len(next_word), len(words)), dtype=np.bool)
 for i, sentence in enumerate(sentences):
     for t, word in enumerate(sentence):
         X[i, t, word_indices[word]] = 1
@@ -72,8 +73,17 @@ model.add(Activation('softmax'))
 
 optimizer = RMSprop(lr=0.01)
 model.compile(loss='categorical_crossentropy', optimizer=optimizer)
-for j in range(1):
+for j in range(10):
     model.fit(X, y, batch_size=1024, nb_epoch=1)
+
+
+model_json = model.to_json()
+with open("model_word_lstm.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save_weights("model_word_lstm.h5")
+print("Saved model to disk")
+
 
 perplexity = 0
 N = 0
@@ -90,7 +100,7 @@ for i in range(len(test)):
         next_word = w[j+maxlen]
         prob = preds[word_indices[next_word]]
         #import pdb;pdb.set_trace()
-        print (prob,i)
+        #print (prob,i)
         perplexity += np.log(prob)
         N += 1
 
