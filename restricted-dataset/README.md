@@ -8,6 +8,7 @@ and validation sets of VisualQA/MSCOCO.
 The images are not included because they wouldn't fit in a GitHub repo. It also contains the
 lists of selected images in each set.
 * `scripts/` contains the scripts used to generate this subset.
+* `topwords.txt` contains the 1000 most common words in the question text.
 
 ## Scripts
 
@@ -22,3 +23,6 @@ just run `sh extract_images.sh dir` and it'll extract the 3000 images from the z
 This generates the `.selected.json.gz` files from the question and annotation zip files provided
 by VisualQA. Normally you don't need to use it since the results of running it are on the repo.
 
+### `extract_text.py`
+
+Extracts the question texts from all the files passed as arguments.

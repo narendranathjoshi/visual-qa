@@ -1,4 +1,5 @@
 coco/test_images/
 coco/train_images/
 coco/val_images/
+coco/question-text/
 
