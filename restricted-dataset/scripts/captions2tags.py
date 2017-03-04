@@ -11,8 +11,7 @@ def iterctr(items, n):
 
         yield item
 
-test_tags = ["cat", "dog", "water", "room", "sign", "shirt", "bus", "plate",
-             "can", "food", "train", "girl", "table", "red", "plane", "boy"]
+test_tags = list(filter(None, open("../test_tags.txt").read().splitlines()))
 
 image_map = defaultdict(list)
 
@@ -23,5 +22,9 @@ for ann in iterctr(data["annotations"], 10000):
         if tag in ann["caption"]:
             image_map[tag].append(ann["image_id"])
 
+image_map = sorted(image_map.items(), key=lambda x: len(x[1]), reverse=True)[:10]
 
-json.dump(image_map, open("val_img_map.json", "w"))
+# for k, v in image_map:
+#     print(k, len(v))
+
+json.dump(dict(image_map), open("sorted_val_img_map.json", "w"))
