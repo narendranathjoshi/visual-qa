@@ -16,7 +16,8 @@ batch_size = 32
 
 print('Loading data...')
 (X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=max_features)
-X_train = X_train[:3000]
+X_train = X_train[:10000]
+X_test = X_test[:3000]
 
 print(len(X_train), 'train sequences')
 print(len(X_test), 'test sequences')
@@ -47,7 +48,7 @@ for i, bigram in enumerate(bigrams):
 print('Build model...')
 model = Sequential()
 #model.add(Embedding(max_features, 128, dropout=0.2))
-model.add(LSTM(128, input_shape=(maxlen, vectorSize)))  # try using a GRU instead, for fun
+model.add(LSTM(32, input_shape=(maxlen, vectorSize)))  # try using a GRU instead, for fun
 model.add(Dense(vectorSize))
 model.add(Activation('softmax'))
 
@@ -60,8 +61,15 @@ model.compile(loss='binary_crossentropy',
 
 optimizer = RMSprop(lr=0.01)
 model.compile(loss='categorical_crossentropy', optimizer=optimizer)
-for j in range(1):
+for j in range(10):
     model.fit(X, y, batch_size=1024, nb_epoch=1)
+
+model_json = model.to_json()
+with open("model_imdb_lstm.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+model.save_weights("model_imdb_lstm.h5")
+print("Saved model to disk")
 
 
 bigrams = []
@@ -93,6 +101,7 @@ for i in range(len(bigrams)):
     N += 1
 
 perplexity /= -N
+perplexity = np.exp(perplexity)
 print (perplexity)
 
 exit(1)

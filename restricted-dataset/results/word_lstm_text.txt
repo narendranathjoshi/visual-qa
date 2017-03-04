@@ -1,0 +1,100 @@
+<s> is that a man or woman ? </s>
+<s> what is the man in the picture ? </s>
+<s> how many people are in the photo ? </s>
+<s> are the people playing ? </s>
+<s> are there in the picture ? </s>
+<s> what is the man holding ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> is this a color ? </s>
+<s> what is the man have a shadow ? </s>
+<s> is the object on the table ? </s>
+<s> what is the man sitting on ? </s>
+<s> did the man wearing ? </s>
+<s> is this a real person ? </s>
+<s> is the man have an umbrella ? </s>
+<s> what sport is this a female ? </s>
+<s> what color is the man wearing a helmet ? </s>
+<s> is the playing with ? </s>
+<s> what color is the man on the left ? </s>
+<s> what is the television on ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> what is the bear ? </s>
+<s> what is the man in the picture ? </s>
+<s> where is the person in the picture ? </s>
+<s> how many horses are there trees visible ? </s>
+<s> what is the remote ? </s>
+<s> what color is the man the woman in the photo ? </s>
+<s> was this picture taken ? </s>
+<s> what is the bear ? </s>
+<s> is the man holding ? </s>
+<s> is the train ? </s>
+<s> is this a real person ? </s>
+<s> is it daytime ? </s>
+<s> is there any people in the scene ? </s>
+<s> what is the number on the ground ? </s>
+<s> what is the man holding ? </s>
+<s> what is the little girl wearing ? </s>
+<s> what time is it night time ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> how many cats are there ? </s>
+<s> which animal is this a male or female ? </s>
+<s> how many candles are there ? </s>
+<s> is the man doing ? </s>
+<s> what gender is the man wearing a helmet ? </s>
+<s> what is the wall ? </s>
+<s> is the woman wearing ? </s>
+<s> can you see a the picture ? </s>
+<s> what is the cat ? </s>
+<s> what is this a big zoo ? </s>
+<s> is this a zoo ? </s>
+<s> is the man wearing ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> is the man wearing a helmet ? </s>
+<s> which side is the man wearing a helmet ? </s>
+<s> is this guy playing ? </s>
+<s> is this a city scene is this a healthy ? </s>
+<s> is anyone wearing a helmet ? </s>
+<s> why are the people in the water ? </s>
+<s> what is the sky ? </s>
+<s> what is the shoes ? </s>
+<s> can you see ? </s>
+<s> is this a real person ? </s>
+<s> what is the man have a slices ? </s>
+<s> what is the man moving ? </s>
+<s> what is the surfboard ? </s>
+<s> is the man wearing a helmet ? </s>
+<s> what is the woman wearing a helmet ? </s>
+<s> is the cat ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> what is this a white bear ? </s>
+<s> what is the man doing ? </s>
+<s> what color is the zebra at ? </s>
+<s> are the people jumping ? </s>
+<s> is the man doing ? </s>
+<s> what item does the mouse have a lot of people in the picture ? </s>
+<s> how many windows are visible ? </s>
+<s> is this a real person ? </s>
+<s> what is the man in a corner ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> what is the man doing ? </s>
+<s> are the people in the vase ? </s>
+<s> are the people in the air ? </s>
+<s> how many people are in the picture ? </s>
+<s> where is the man wearing a helmet ? </s>
+<s> what color is the bird ? </s>
+<s> what is the man ? </s>
+<s> is the water ? </s>
+<s> are the people doing ? </s>
+<s> is the woman wearing a helmet ? </s>
+<s> is this ? </s>
+<s> what is the man wearing a helmet ? </s>
+<s> does the red sign ? </s>
+<s> how many people are on the table ? </s>
+<s> is this a hotel room ? </s>
+<s> what is the woman ? </s>
+<s> is the man wearing ? </s>
+<s> what is the man have a shadow ? </s>
+<s> what is the man in the photograph ? </s>
+<s> what is the man wearing on his face ? </s>
+<s> what is the kid playing ? </s>
+<s> what kind of flowers are in the picture ? </s>
