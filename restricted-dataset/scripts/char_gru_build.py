@@ -1,7 +1,7 @@
 from __future__ import print_function
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.layers import LSTM
+from keras.layers import LSTM,GRU
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
 from keras.models import model_from_json
@@ -10,13 +10,17 @@ import random
 import sys
 
 
-f=open("questions.txt",'r')
+f=open("questions_all.txt",'r')
 total = f.readlines()
 text = ""
 test = ""
+total = total#[:10000]
 total_len = len(total)
 train_len = int(total_len*0.7)
+print (train_len)
 test_len = len(total) - train_len
+print (test_len)
+
 for i in range(train_len):
     text += str(total[i]).lower()
 for i in xrange(train_len+1,total_len):
@@ -39,6 +43,7 @@ for i in range(0, len(text) - maxlen):
 print('nb sequences:', len(sentences))
 print (len(sentences))
 
+
 print('Vectorization...')
 X = np.zeros((len(sentences), maxlen, len(chars)), dtype=np.bool)
 y = np.zeros((len(sentences), len(chars)), dtype=np.bool)
@@ -51,7 +56,7 @@ for i, sentence in enumerate(sentences):
 # build the model: a single LSTM
 print('Build model...')
 model = Sequential()
-model.add(LSTM(32, input_shape=(maxlen, len(chars))))
+model.add(GRU(32, input_shape=(maxlen, len(chars))))
 model.add(Dense(len(chars)))
 model.add(Activation('softmax'))
 
@@ -64,22 +69,12 @@ for j in range(10):
 
 
 model_json = model.to_json()
-with open("model_character_lstm.json", "w") as json_file:
+with open("model_character_gru.json", "w") as json_file:
     json_file.write(model_json)
 # serialize weights to HDF5
-model.save_weights("model_character_lstm.h5")
+model.save_weights("model_character_gru.h5")
 print("Saved model to disk")
 
-'''
-# load json and create model
-json_file = open('model_character_lstm.json', 'r')
-loaded_model_json = json_file.read()
-json_file.close()
-loaded_model = model_from_json(loaded_model_json)
-# load weights into new model
-loaded_model.load_weights("model_character_lstm.h5")
-print("Loaded model from disk")
-'''
 
 N = 0
 for i in range(len(test)-maxlen-1):
@@ -103,46 +98,3 @@ perplexity = np.exp(perplexity)
 print ("perplexity = ", perplexity)
 
 exit(1)
-def sample(preds, temperature=1.0):
-    # helper function to sample an index from a probability array
-    preds = np.asarray(preds).astype('float64')
-    preds = np.log(preds) / temperature
-    exp_preds = np.exp(preds)
-    preds = exp_preds / np.sum(exp_preds)
-    probas = np.random.multinomial(1, preds, 1)
-    return np.argmax(probas)
-
-# train the model, output generated text after each iteration
-for iteration in range(1, 4):
-    print()
-    print('-' * 50)
-    print('Iteration', iteration)
-    model.fit(X, y, batch_size=7, nb_epoch=1)
-
-    start_index = random.randint(0, len(text) - maxlen - 1)
-
-    for diversity in [0.2, 0.5, 1.0, 1.2]:
-        print()
-        print('----- diversity:', diversity)
-
-        generated = ''
-        sentence = text[start_index: start_index + maxlen]
-        generated += sentence
-        print('----- Generating with seed: "' + sentence + '"')
-        sys.stdout.write(generated)
-
-        for i in range(400):
-            x = np.zeros((1, maxlen, len(chars)))
-            for t, char in enumerate(sentence):
-                x[0, t, char_indices[char]] = 1.
-
-            preds = model.predict(x, verbose=0)[0]
-            next_index = sample(preds, diversity)
-            next_char = indices_char[next_index]
-
-            generated += next_char
-            sentence = sentence[1:] + next_char
-
-            sys.stdout.write(next_char)
-            sys.stdout.flush()
-        print()
