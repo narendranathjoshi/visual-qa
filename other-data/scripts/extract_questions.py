@@ -12,7 +12,9 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 for input_file_name in sys.argv[1:]:
-    with gzip.open(input_file_name) as input_file:
+    extension = input_file_name.split(".")[-1]
+    opener = gzip.open if extension == "gz" else open
+    with opener(input_file_name) as input_file:
         data = json.load(input_file)
         if 'questions' not in data.keys():
             print("\n  ! Error: unrecognized file type")

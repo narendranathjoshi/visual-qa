@@ -3,7 +3,7 @@
 This directory contains data for a subset of images from the visualQA dataset so that
 we can run small experiments locally.
 
-* `coco/` contains question and annotation data for 1000 images each of the training, testing,
+* `data/` contains question and annotation data for 1000 images each of the training, testing,
 and validation sets of VisualQA/MSCOCO.
 The images are not included because they wouldn't fit in a GitHub repo. It also contains the
 lists of selected images in each set.
@@ -22,7 +22,3 @@ just run `sh extract_images.sh dir` and it'll extract the 3000 images from the z
 
 This generates the `.selected.json.gz` files from the question and annotation zip files provided
 by VisualQA. Normally you don't need to use it since the results of running it are on the repo.
-
-### `extract_text.py`
-
-Extracts the question texts from all the files passed as arguments.
