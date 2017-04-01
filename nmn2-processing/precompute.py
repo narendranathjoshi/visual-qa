@@ -5,20 +5,20 @@ import os
 import sys
 import matplotlib.image
 
-caffe.set_device(7)
-caffe.set_mode_gpu()
+#caffe.set_device(7)
+#caffe.set_mode_gpu()
 
 split = "train2014"
 
-IMAGE_ROOT = "/x/jda/vqa/Images/" + split + "/raw"
+IMAGE_ROOT = "/Users/matthieu/src/cmu/mmml/nmn2/data/vqa/Images/" + split + "/raw"
 RAW_ROOT = IMAGE_ROOT
-IMAGE_CONV_DEST = "/x/jda/vqa/Images/" + split + "/conv"
-IMAGE_FC_DEST = "/x/jda/vqa/Images/" + split + "/fc"
+IMAGE_CONV_DEST = "/Users/matthieu/src/cmu/mmml/nmn2/data/vqa/Images/" + split + "/conv"
+IMAGE_FC_DEST = "/Users/matthieu/src/cmu/mmml/nmn2/data/vqa/Images/" + split + "/fc"
 BATCH_SIZE = 32
 
-VGG_FINE_TUNED = "/x/rohrbach/lrcn_finetune_vgg_trainval_iter_100000.caffemodel"
+VGG_FINE_TUNED = "VGG_ILSVRC_16_layers.caffemodel"
 
-net = caffe.Net("/home/jda/vggnet/VGG_ILSVRC_16_layers_deploy.prototxt",
+net = caffe.Net("VGG_ILSVRC_16_layers_deploy.prototxt",
                 VGG_FINE_TUNED,
                 caffe.TEST)
 
@@ -54,7 +54,7 @@ for size, names in image_names_by_size.items():
 
     transformer = caffe.io.Transformer({'data': net.blobs["data"].data.shape})
     transformer.set_transpose("data", (2, 0, 1))
-    transformer.set_mean("data", np.load("caffe/imagenet/ilsvrc_2012_mean.npy").mean(1).mean(1))
+    transformer.set_mean("data", np.load("ilsvrc_2012_mean.npy").mean(1).mean(1))
     transformer.set_raw_scale("data", 255)
     transformer.set_channel_swap("data", (2,1,0))
 
