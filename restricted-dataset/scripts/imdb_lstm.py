@@ -12,21 +12,17 @@ from keras.datasets import imdb
 
 max_features = 20000
 maxlen = 2  # cut texts after this number of words (among top max_features most common words)
-batch_size = 32
+batch_size = 16
 
 print('Loading data...')
 (X_train, y_train), (X_test, y_test) = imdb.load_data(nb_words=max_features)
-X_train = X_train[:10000]
-X_test = X_test[:3000]
+X_train = X_train[:1000]
+X_test = X_test[:300]
 
 print(len(X_train), 'train sequences')
 print(len(X_test), 'test sequences')
 
-vectorSize = -99
-for x_train in X_train:
-    vectorSize = max(vectorSize, max(x_train))
-vectorSize += 1
-print (vectorSize)
+vectorSize = max_features
 
 # for training
 bigrams = []
