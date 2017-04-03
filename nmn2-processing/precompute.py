@@ -6,14 +6,19 @@ import sys
 import matplotlib.image
 
 #caffe.set_device(7)
-#caffe.set_mode_gpu()
+caffe.set_mode_gpu()
 
-split = "train2014"
+if len(sys.argv) !=2:
+  raise Exception("Usage: preprocess <split>")
 
-IMAGE_ROOT = "/Users/matthieu/src/cmu/mmml/nmn2/data/vqa/Images/" + split + "/raw"
+split = sys.argv[1]
+
+DATA_ROOT = "/home/ubuntu/matt/nmn2/data/vqa/Images"
+
+IMAGE_ROOT = DATA_ROOT + split + "/raw"
 RAW_ROOT = IMAGE_ROOT
-IMAGE_CONV_DEST = "/Users/matthieu/src/cmu/mmml/nmn2/data/vqa/Images/" + split + "/conv"
-IMAGE_FC_DEST = "/Users/matthieu/src/cmu/mmml/nmn2/data/vqa/Images/" + split + "/fc"
+IMAGE_CONV_DEST = DATA_ROOT + split + "/conv"
+IMAGE_FC_DEST = DATA_ROOT + split + "/fc"
 BATCH_SIZE = 32
 
 VGG_FINE_TUNED = "VGG_ILSVRC_16_layers.caffemodel"

@@ -23,7 +23,7 @@ EDGE_RE = re.compile(r"([^()]+)\((.+)-(\d+), (.+)-(\d+)\)")
 CONTENT_RE = re.compile(r"NN*|VB*|JJ*")
 #CONTENT_RE = re.compile(r"NN|VB|JJ")
 
-REL_PRECEDENCE = ["root", "nsubj", "dobj", "pobj", "nsubjpass", "dep", "xcomp", "conj_or", "prep_of", "ccomp", "prep_in"]
+REL_PRECEDENCE = ["root", "nsubj", "dobj", "pobj", "nsubjpass", "dep", "xcomp", "conj_or", "conj_and", "prep_of", "ccomp", "prep_in", "prep_on", "prep_from", "prep_at", "prep_to", "prep_for", "prep_by"]
 
 def precedence(rel):
     if "nmod:" in rel:
@@ -32,7 +32,11 @@ def precedence(rel):
         return len(REL_PRECEDENCE) + 1
     if "acl:" in rel:
         return len(REL_PRECEDENCE) + 1
-    return REL_PRECEDENCE.index(rel)
+    else:
+        try:
+            return REL_PRECEDENCE.index(rel)
+        except ValueError:
+            return len(REL_PRECEDENCE) + 1
 
 class LfParser(object):
     def __init__(self, use_relations, max_leaves, max_conjuncts):
