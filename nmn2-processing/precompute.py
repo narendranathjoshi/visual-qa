@@ -13,7 +13,7 @@ if len(sys.argv) !=2:
 
 split = sys.argv[1]
 
-DATA_ROOT = "/home/ubuntu/matt/nmn2/data/vqa/Images"
+DATA_ROOT = "/home/ubuntu/matt/nmn2/data/vqa/Images/"
 
 IMAGE_ROOT = DATA_ROOT + split + "/raw"
 RAW_ROOT = IMAGE_ROOT
